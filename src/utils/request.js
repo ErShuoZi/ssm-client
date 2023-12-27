@@ -5,13 +5,23 @@ class Request{
   constructor(config){
     this.instance = axios.create(config)
     this.instance.interceptors.request.use((config) => {
+      config.headers["Content-Type"] = "application/json;charset=utf-8"
       return config
     },(err) => {
       return err
     })
 
     this.instance.interceptors.response.use((response) => {
-      return response
+      let res = response.data
+      //如果返回文件，直接返回
+      if(response.config.responseType === 'blob'){
+        return res
+      }
+      if(typeof res === "string") {
+        res = res ? JSON.parse(res): res
+      }
+      return res
+     
     },(err) => {
       return err
     })

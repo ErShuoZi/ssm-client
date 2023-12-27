@@ -1,6 +1,6 @@
 import Request from "./request";
 const LSRequest =  new Request({
-  baseURL:"http://localhost:8080/ssm",
+  baseURL:"/api",
   timeout:10000
 })
 

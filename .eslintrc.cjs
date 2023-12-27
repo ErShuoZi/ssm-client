@@ -11,7 +11,18 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest'
   },
+  globals: {
+    defineEmits: "readonly",
+    defineProps: "readonly",
+    defineExpose: "readonly",
+    withDefaults: "readonly",
+    WeixinJSBridge: "readonly",
+    ElMessage: "readonly",
+    ElMessageBox: "readonly",
+    ElLoading: "readonly",
+  },
   rules:{
-    "vue/multi-word-component-names":0
+    "vue/multi-word-component-names":0,
+    "no-unused-vars":0
   }
 }
